@@ -24,12 +24,12 @@ function QuestionDetails (props = {}) {
   );
 }
 
-function AnswerDetails () {
+function AnswerDetails (props) {
   return (
     <div>
-      <p>What kind of idiot picks a password no one can guess?</p>
-      <p>By Jon Snow</p>
-      <p><strong>Created At:</strong> 2017-01-01</p>
+      <p>{props.body}</p>
+      <p>By {props.author_full_name}</p>
+      <p><strong>Created At:</strong> {props.created_at}</p>
     </div>
   );
 }
@@ -38,6 +38,10 @@ function QuestionShowPage () {
   // To pass props to React elements, set them with
   // "HTML attributes". Each attribute will as a property
   // of the `props` object.
+
+  // When passing props in JSX, any value that
+  // is a non-string (e.g. numbers, objects, arrays, functions, etc)
+  // must be put inside {}.
   return (
     <main className="QuestionShowPage">
       <QuestionDetails
@@ -49,7 +53,11 @@ function QuestionShowPage () {
         author={{full_name: "Jon Snow"}}
       />
       <h3>Answer</h3>
-      <AnswerDetails />
+      <AnswerDetails
+        body="Magenta with a tinge of teal"
+        author_full_name="Jane Doe"
+        created_at="2017-01-01"
+      />
     </main>
   );
 }
