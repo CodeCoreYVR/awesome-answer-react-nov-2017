@@ -27,5 +27,23 @@ function QuestionDetails () {
   );
 }
 
-ReactDOM.render(<QuestionDetails />, document.getElementById('root'));
+function AnswerDetails () {
+  return (
+    <div>
+      <p>What kind of idiot picks a password no one can guess?</p>
+      <p>By Jon Snow</p>
+      <p><strong>Created At:</strong> 2017-01-01</p>
+    </div>
+  );
+}
+
+
+ReactDOM.render(<AnswerDetails />, document.getElementById('root'));
 registerServiceWorker();
+
+
+
+
+
+
+// bump
