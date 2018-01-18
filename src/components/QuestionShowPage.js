@@ -15,7 +15,13 @@ function QuestionShowPage () {
   // is a non-string (e.g. numbers, objects, arrays, functions, etc)
   // must be put inside {}.
   return (
-    <main className="QuestionShowPage">
+    <main
+      className="QuestionShowPage"
+      style={{
+        padding: '0 20px'
+      }}
+    >
+      {/* I'm a valid comment */}
       <QuestionDetails
         title="What is your favourite colour?"
         body="Red, magenta, blue, indigo, purple, etc."
