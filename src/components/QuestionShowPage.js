@@ -4,7 +4,6 @@ import React from 'react';
 // you must braces after `import` to choose the values
 // that you are import from the module.
 import {QuestionDetails} from './QuestionDetails';
-import {AnswerDetails} from './AnswerDetails';
 import {AnswerList} from './AnswerList';
 import question from '../data/question';
 
