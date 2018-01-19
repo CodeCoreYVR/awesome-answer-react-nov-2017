@@ -8,8 +8,24 @@ import {AnswerList} from './AnswerList';
 import question from '../data/question';
 
 class QuestionShowPage extends Component {
+  // When you create your own constructor, you overwrite
+  // the constructor in the parent class, Component.
+  // The parent constructor must still be called which
+  // is we super(props) as first line of code inside
+  // our constructor.
+
+  // We use constructor primarily to set an initial state
+  // for our component.
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      question: question
+    };
+  }
+
   render () {
-    const {answers = []} = question;
+    const {answers = []} = this.state.question;
     // To pass props to React elements, set them with
     // "HTML attributes". Each attribute will as a property
     // of the `props` object.
@@ -25,7 +41,7 @@ class QuestionShowPage extends Component {
         }}
       >
         {/* I'm a valid comment */}
-        <QuestionDetails {...question} />
+        <QuestionDetails {...this.state.question} />
         <h3>Answer</h3>
         <AnswerList answers={answers} />
       </main>
