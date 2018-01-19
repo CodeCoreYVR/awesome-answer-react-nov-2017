@@ -5,8 +5,11 @@ import React from 'react';
 // that you are import from the module.
 import {QuestionDetails} from './QuestionDetails';
 import {AnswerDetails} from './AnswerDetails';
+import {AnswerList} from './AnswerList';
+import question from '../data/question';
 
 function QuestionShowPage () {
+  const {answers = []} = question;
   // To pass props to React elements, set them with
   // "HTML attributes". Each attribute will as a property
   // of the `props` object.
@@ -22,20 +25,9 @@ function QuestionShowPage () {
       }}
     >
       {/* I'm a valid comment */}
-      <QuestionDetails
-        title="What is your favourite colour?"
-        body="Red, magenta, blue, indigo, purple, etc."
-        created_at="2017-01-01"
-        updated_at="2017-01-01"
-        view_count={901}
-        author={{full_name: "Jon Snow"}}
-      />
+      <QuestionDetails {...question} />
       <h3>Answer</h3>
-      <AnswerDetails
-        body="Magenta with a tinge of teal"
-        author_full_name="Jane Doe"
-        created_at="2017-01-01"
-      />
+      <AnswerList answers={answers} />
     </main>
   );
 }
