@@ -25,7 +25,7 @@ function QuestionShowPage () {
     >
       {/* I'm a valid comment */}
       <QuestionDetails {...question} />
-      <h3>Answer</h3>
+      <h3>Answers</h3>
       <AnswerList answers={answers} />
     </main>
   );
