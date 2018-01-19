@@ -3,6 +3,14 @@ import {Field} from './Field';
 import questions from '../data/questions';
 
 class QuestionIndexPage extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      questions: questions
+    };
+  }
+
   render () {
     return (
       <main
@@ -13,7 +21,7 @@ class QuestionIndexPage extends Component {
         <h2>Questions</h2>
         <ul style={{paddingLeft: '10px'}}>
           {
-            questions.map(question => (
+            this.state.questions.map(question => (
               <li key={question.id}>
                 <a href="">{question.title}</a>
                 <Field name="Author" value={question.author.full_name} />
