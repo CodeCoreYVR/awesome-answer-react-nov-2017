@@ -27,8 +27,6 @@ class CurrentDateTime extends Component {
     this.intervalId = null;
   }
 
-
-
   render () {
     const {dateTime} = this.state;
 
