@@ -17,7 +17,7 @@ function App () {
       <div className="App">
         <NavBar />
         <Route path="/questions" exact component={QuestionIndexPage} />
-        <Route path="/questions/id" component={QuestionShowPage} />
+        <Route path="/questions/:id" component={QuestionShowPage} />
       </div>
     </Router>
   );

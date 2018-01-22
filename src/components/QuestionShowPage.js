@@ -47,8 +47,10 @@ class QuestionShowPage extends Component {
   }
 
   componentDidMount () {
+    const {params} = this.props.match;
+
     Question
-      .get(347)
+      .get(params.id)
       .then(question => {
         this.setState({question, loading: false})
       });

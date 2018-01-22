@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Field} from './Field';
 import {QuestionForm} from './QuestionForm';
 import {Question} from '../requests/questions';
+import {Link} from 'react-router-dom';
 
 class QuestionIndexPage extends Component {
   constructor (props) {
@@ -120,7 +121,9 @@ class QuestionIndexPage extends Component {
           {
             this.state.questions.map(question => (
               <li key={question.id}>
-                <a href="">{question.title}</a>
+                <Link to={`/questions/${question.id}`}>
+                  {question.title}
+                </Link>
                 <Field name="Author" value={question.author.full_name} />
                 <button
                   onClick={this.deleteQuestion(question.id)}
