@@ -31,7 +31,10 @@ class CurrentDateTime extends Component {
     const {dateTime} = this.state;
 
     return (
-      <span className="CurrentDateTime">
+      // It's often a good idea to allow users to style
+      // your component by passing the style prop
+      // to child components.
+      <span className="CurrentDateTime" style={this.props.style}>
         {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
       </span>
     );
