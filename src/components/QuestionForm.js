@@ -33,7 +33,7 @@ function QuestionForm (props) {
 
       <div>
         <label htmlFor="body">Body</label> <br />
-        <input
+        <textarea
           onChange={handleChange("body")}
           value={question.body}
           name="body"

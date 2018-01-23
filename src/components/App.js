@@ -4,20 +4,27 @@ import React from 'react';
 // to React.createElement(...) calls.
 import {QuestionShowPage} from './QuestionShowPage';
 import {QuestionIndexPage} from './QuestionIndexPage';
+import {QuestionNewPage} from './QuestionNewPage';
 import {NavBar} from './NavBar';
 import {
   BrowserRouter as Router,
-  Link,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 
 function App () {
+  // The <Switch> component is used with <Route> children.
+  // It will force only one route children to render at a time.
+  // Only the first <Route> that matches will render.
   return (
     <Router >
       <div className="App">
         <NavBar />
-        <Route path="/questions" exact component={QuestionIndexPage} />
-        <Route path="/questions/:id" component={QuestionShowPage} />
+        <Switch>
+          <Route path="/questions" exact component={QuestionIndexPage} />
+          <Route path="/questions/new" component={QuestionNewPage} />
+          <Route path="/questions/:id" component={QuestionShowPage} />
+        </Switch>
       </div>
     </Router>
   );

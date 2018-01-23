@@ -102,7 +102,7 @@ class QuestionShowPage extends Component {
         }}
       >
         {/* I'm a valid comment */}
-        <QuestionDetails {...this.state.question} />
+        <QuestionDetails {...question} />
         <button
           onClick={this.delete}
         >Delete</button>

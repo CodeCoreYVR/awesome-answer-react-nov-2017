@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Field} from './Field';
-import {QuestionForm} from './QuestionForm';
 import {Question} from '../requests/questions';
 import {Link} from 'react-router-dom';
 
@@ -10,12 +9,7 @@ class QuestionIndexPage extends Component {
 
     this.state = {
       loading: true,
-      questions: [],
-      newQuestion: {
-        title: "",
-        body: "",
-        author: {}
-      }
+      questions: []
     };
 
     // this.deleteQuestion = (..args) => this.deleteQuestion(...args);
@@ -24,8 +18,6 @@ class QuestionIndexPage extends Component {
     // we must bind this to it otherwise we won't have access
     // to any method on `this` such `setState`.
     this.deleteQuestion = this.deleteQuestion.bind(this);
-    this.addQuestion = this.addQuestion.bind(this);
-    this.updateNewQuestion = this.updateNewQuestion.bind(this);
   }
 
   deleteQuestion (questionId) {
@@ -51,27 +43,6 @@ class QuestionIndexPage extends Component {
     }
   }
 
-  updateNewQuestion (data) {
-    console.log(data)
-    const {newQuestion} = this.state;
-
-    this.setState({
-      newQuestion: {...newQuestion, ...data}
-    });
-  }
-
-  addQuestion () {
-    const {questions, newQuestion} = this.state;
-    this.setState({
-      questions: [newQuestion, ...questions],
-      newQuestion: {
-        title: "",
-        body: "",
-        author: {}
-      }
-    });
-  }
-
   /* // Promise version
   componentDidMount () {
     Question
@@ -92,7 +63,7 @@ class QuestionIndexPage extends Component {
   }
 
   render () {
-    const {newQuestion, loading} = this.state;
+    const {loading} = this.state;
 
     if (loading) {
       return (
@@ -112,11 +83,6 @@ class QuestionIndexPage extends Component {
       >
         {/* This is how we comment in JSX! */}
         <h2>Questions</h2>
-        <QuestionForm
-          question={newQuestion}
-          onChange={this.updateNewQuestion}
-          onSubmit={this.addQuestion}
-        />
         <ul style={{paddingLeft: '10px'}}>
           {
             this.state.questions.map(question => (

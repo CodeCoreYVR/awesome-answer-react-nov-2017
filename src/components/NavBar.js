@@ -11,6 +11,7 @@ function NavBar (props) {
       }}
     >
       <Link style={{marginRight: '20px'}} to="/">Home</Link>
+      <Link style={{marginRight: '20px'}} to="/questions/new">New Question</Link>
       <Link to="/questions">Questions</Link>
       <CurrentDateTime
         style={{
