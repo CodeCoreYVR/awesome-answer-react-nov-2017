@@ -5,6 +5,7 @@ import React from 'react';
 import {QuestionShowPage} from './QuestionShowPage';
 import {QuestionIndexPage} from './QuestionIndexPage';
 import {QuestionNewPage} from './QuestionNewPage';
+import {SignInPage} from './SignInPage';
 import {NavBar} from './NavBar';
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ function App () {
       <div className="App">
         <NavBar />
         <Switch>
+          <Route path="/sign_in" component={SignInPage} />
           <Route path="/questions" exact component={QuestionIndexPage} />
           <Route path="/questions/new" component={QuestionNewPage} />
           <Route path="/questions/:id" component={QuestionShowPage} />
