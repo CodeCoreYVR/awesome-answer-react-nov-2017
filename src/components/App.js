@@ -27,6 +27,7 @@ class App extends Component {
       loading: true
     };
     this.signIn = this.signIn.bind(this);
+    this.signOut = this.signOut.bind(this);
   }
 
   signIn () {
@@ -37,6 +38,11 @@ class App extends Component {
     } else {
       this.setState({loading: false});
     }
+  }
+
+  signOut () {
+    localStorage.removeItem('jwt');
+    this.setState({user: null, loading: false});
   }
 
   componentDidMount () {
@@ -64,7 +70,10 @@ class App extends Component {
     return (
       <Router >
         <div className="App">
-          <NavBar user={user} />
+          <NavBar
+            onSignOutClick={this.signOut}
+            user={user}
+          />
           <Switch>
             <Route path="/sign_in" render={props => {
               return <SignInPage {...props} onSignIn={this.signIn} />
