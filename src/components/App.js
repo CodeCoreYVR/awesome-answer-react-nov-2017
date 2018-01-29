@@ -5,7 +5,10 @@ import React, {Component} from 'react';
 import {QuestionShowPage} from './QuestionShowPage';
 import {QuestionIndexPage} from './QuestionIndexPage';
 import {QuestionNewPage} from './QuestionNewPage';
+import {NotFoundPage} from './NotFoundPage';
+import {HomePage} from './HomePage';
 import {SignInPage} from './SignInPage';
+
 import {NavBar} from './NavBar';
 import {AuthRoute} from './AuthRoute';
 import {
@@ -66,6 +69,12 @@ class App extends Component {
             <Route path="/sign_in" render={props => {
               return <SignInPage {...props} onSignIn={this.signIn} />
             }} />
+            />
+            <Route
+              exact
+              path="/"
+              component={HomePage}
+            />
             <AuthRoute
               isAuthenticated={this.isAuth()}
               path="/questions"
@@ -82,6 +91,7 @@ class App extends Component {
               path="/questions/:id"
               component={QuestionShowPage}
             />
+            <Route component={NotFoundPage} />
           </Switch>
         </div>
       </Router>
