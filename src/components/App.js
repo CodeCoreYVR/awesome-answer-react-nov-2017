@@ -20,7 +20,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      user: null
+      user: null,
+      loading: true
     };
     this.signIn = this.signIn.bind(this);
   }
@@ -29,7 +30,9 @@ class App extends Component {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       const payload = jwtDecode(jwt);
-      this.setState({user: payload});
+      this.setState({user: payload, loading: false});
+    } else {
+      this.setState({loading: false});
     }
   }
 
@@ -42,7 +45,16 @@ class App extends Component {
   }
 
   render () {
-    const {user} = this.state;
+    const {user, loading} = this.state;
+
+    if (loading) {
+      return (
+        <div>
+          Loading...
+        </div>
+      );
+    }
+
     // The <Switch> component is used with <Route> children.
     // It will force only one route children to render at a time.
     // Only the first <Route> that matches will render.
