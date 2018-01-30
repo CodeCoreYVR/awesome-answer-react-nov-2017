@@ -7,7 +7,8 @@ class SignInPage extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: []
     };
 
     this.createToken = this.createToken.bind(this);
@@ -32,9 +33,25 @@ class SignInPage extends Component {
           localStorage.setItem('jwt', jwt);
           this.props.history.push('/');
           onSignIn();
-          this.setState({email: "", password: ""});
+          this.setState({email: "", password: "", errors: []});
+        } else {
+          this.setState({
+            errors: [{message: 'Invalid username or password!'}]
+          });
         }
       });
+  }
+
+  _renderErrors () {
+    const {errors} = this.state;
+
+    return errors.length > 0 ? (
+      <p>
+        { errors.map(e => e.message).join(', ') }
+      </p>
+    ) : (
+      null
+    );
   }
 
   render () {
@@ -47,6 +64,7 @@ class SignInPage extends Component {
       >
         <h2>Sign In</h2>
         <form onSubmit={this.createToken}>
+          { this._renderErrors() }
           <div>
             <label htmlFor='email'>Email</label> <br />
             <input
