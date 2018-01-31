@@ -2,12 +2,18 @@ import React, {Component} from 'react';
 // Anywhere you write JSX tags, React must be
 // imported, because JSX tags are translated
 // to React.createElement(...) calls.
-import {QuestionShowPage} from './QuestionShowPage';
-import {QuestionIndexPage} from './QuestionIndexPage';
-import {QuestionNewPage} from './QuestionNewPage';
-import {SignInPage} from './SignInPage';
-import {NotFoundPage} from './NotFoundPage';
-import {HomePage} from './HomePage';
+
+// When importing a directory, the import will actually
+// look for a file named `index.js` inside of it and
+// import that instead.
+import {
+  QuestionShowPage,
+  QuestionIndexPage,
+  QuestionNewPage,
+  SignInPage,
+  HomePage,
+  NotFoundPage
+} from './pages';
 import {NavBar} from './NavBar';
 import {AuthRoute} from './AuthRoute';
 import {

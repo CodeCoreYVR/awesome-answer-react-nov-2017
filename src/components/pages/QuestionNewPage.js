@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {QuestionForm} from './QuestionForm';
-import {Question} from '../requests/questions';
+import {QuestionForm} from '../QuestionForm';
+import {Question} from '../../requests/questions';
 
 class QuestionNewPage extends Component {
   constructor (props) {

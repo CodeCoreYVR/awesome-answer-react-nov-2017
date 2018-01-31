@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Field} from './Field';
-import {Question} from '../requests/questions';
 import {Link} from 'react-router-dom';
+import {Field} from '../Field';
+import {Question} from '../../requests/questions';
 
 class QuestionIndexPage extends Component {
   constructor (props) {

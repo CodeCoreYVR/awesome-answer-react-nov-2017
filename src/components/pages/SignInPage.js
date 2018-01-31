@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Token} from '../requests/tokens';
+import {Token} from '../../requests/tokens';
 
 class SignInPage extends Component {
   constructor (props) {
